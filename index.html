@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorial WinCUPL | 11.º TGEI</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f4f4;color:#222;line-height:1.6}header{background:#222;color:#fff;text-align:center;padding:55px 20px}header h1{margin:0 0 10px;font-size:38px}header p{margin:5px 0}nav{position:sticky;top:0;z-index:10;background:#333;text-align:center;padding:12px 10px}nav a{display:inline-block;color:#fff;text-decoration:none;margin:4px 10px;font-size:14px}nav a:hover{text-decoration:underline}main{width:min(950px,92%);margin:35px auto}section{background:#fff;margin-bottom:25px;padding:30px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.07)}section h2{margin-top:0;font-size:25px;border-bottom:1px solid #ddd;padding-bottom:10px}.numero{color:#666;font-size:14px}.foto{margin:25px 0;text-align:center}.foto img{display:block;width:100%;max-width:850px;max-height:650px;object-fit:contain;margin:0 auto;border:1px solid #ccc;border-radius:5px;background:#eee}.foto .legenda{margin-top:9px;color:#666;font-size:14px}.codigo{background:#1f1f1f;color:#eee;padding:20px;border-radius:5px;overflow-x:auto;font-family:Consolas,"Courier New",monospace;font-size:14px;white-space:pre}table{width:100%;border-collapse:collapse;margin-top:15px}th,td{border:1px solid #ccc;padding:10px;text-align:center}th{background:#eee}.resultado{padding:15px;background:#f1f1f1;border-left:4px solid #555;margin-top:20px}ul{padding-left:25px}a.fonte{color:#333}footer{background:#222;color:#fff;text-align:center;padding:25px 15px;margin-top:40px}@media(max-width:650px){header h1{font-size:30px}section{padding:20px}nav a{margin:3px 6px}}
+</style>
+</head>
+<body>
+<header>
+<h1>Tutorial WinCUPL</h1>
+<p>Instalação, criação e compilação de um projeto</p>
+<p>Salvador Rosário — N.º 15 | Santiago Martins — N.º 17</p>
+<p>11.º TGEI</p>
+</header>
+<nav>
+<a href="#inicio">Início</a><a href="#instalacao">Instalação</a><a href="#projeto">Projeto</a><a href="#codigo">Código</a><a href="#compilacao">Compilação</a><a href="#problema">Problema</a><a href="#conclusao">Conclusão</a><a href="#fontes">Fontes</a>
+</nav>
+<main>
+<section id="inicio"><h2>Introdução</h2><p>Neste trabalho apresentamos os passos que seguimos para instalar o WinCUPL, criar um projeto simples e verificar a sua compilação.</p><p>O projeto foi realizado por Salvador Rosário e Santiago Martins, do 11.º TGEI.</p></section>
+<section id="instalacao"><p class="numero">01</p><h2>Instalação do WinCUPL</h2><p>Primeiro fizemos o download do WinCUPL e iniciámos a instalação. Seguimos os passos apresentados pelo instalador até terminar.</p><div class="foto"><img src="instalacao.png" alt="Instalação do WinCUPL"><p class="legenda">Instalação do WinCUPL.</p></div><p>Depois de terminar a instalação, abrimos o programa para começar a criação do projeto.</p></section>
+<section id="projeto"><p class="numero">02</p><h2>Criação do projeto</h2><p>Criámos um novo projeto através do WinCUPL. Na seleção do dispositivo utilizámos o ATF16V8B, com o package 20 DIP e a opção Simple.</p><div class="foto"><img src="dispositivo.png" alt="Seleção do dispositivo"><p class="legenda">Seleção do dispositivo utilizado no projeto.</p></div><p>Depois criámos o ficheiro de design e colocámos os dados necessários para o projeto.</p><div class="foto"><img src="projeto.png" alt="Criação do projeto"><p class="legenda">Criação do projeto no WinCUPL.</p></div></section>
+<section id="codigo"><p class="numero">03</p><h2>Código utilizado</h2><p>O projeto representa uma porta lógica AND. Foram definidas duas entradas, A e B, e uma saída Y.</p><div class="codigo">Name     PortaAND;
+PartNo   00;
+Date     06/10/2026;
+Revision 01;
+Designer Salvador Rosario e Santiago Martins;
+Company  ETPR;
+Assembly None;
+Location None;
+Device   G16V8S;
+
+PIN 1 = A;
+PIN 2 = B;
+PIN 19 = Y;
+
+Y = A &amp; B;</div><div class="foto"><img src="codigo.png" alt="Código do projeto no WinCUPL"><p class="legenda">Código utilizado no projeto.</p></div><h3>Funcionamento</h3><p>A saída Y só fica ativa quando as duas entradas, A e B, estão ativas.</p><table><tr><th>A</th><th>B</th><th>Y</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></section>
+<section id="compilacao"><p class="numero">04</p><h2>Compilação</h2><p>Depois de escrever o código, guardámos o projeto e fizemos a compilação para verificar se existiam erros.</p><div class="foto"><img src="compilacao.png" alt="Resultado da compilação"><p class="legenda">Resultado da compilação.</p></div><div class="resultado"><strong>Resultado:</strong> Design compiled successfully.<br><strong>Error Code:</strong> 0</div><p>A compilação foi concluída com sucesso e não foram encontrados erros no projeto.</p></section>
+<section id="problema"><p class="numero">05</p><h2>Problema encontrado</h2><p>Durante a primeira compilação apareceu um erro relacionado com um carácter acentuado no nome do Designer.</p><div class="foto"><img src="erro.png" alt="Erro encontrado durante a compilação"><p class="legenda">Erro apresentado durante a primeira compilação.</p></div><p>Para resolver o problema retiramos o acento da palavra “Rosário”, ficando “Rosario”. Depois voltámos a compilar o projeto e a compilação foi realizada com sucesso.</p></section>
+<section id="conclusao"><p class="numero">06</p><h2>Conclusão</h2><p>Com este trabalho aprendemos a instalar e utilizar o WinCUPL para criar e compilar um projeto simples. Também aprendemos a identificar e corrigir um erro no código. A principal dificuldade foi perceber alguns dos passos do programa, mas conseguimos terminar o projeto e compilá-lo sem erros.</p></section>
+<section id="fontes"><p class="numero">07</p><h2>Fontes</h2><p>Nesta parte devem colocar as páginas que consultaram durante a realização do trabalho.</p><ul><li><a class="fonte" href="#">Fonte consultada 1</a></li><li><a class="fonte" href="#">Fonte consultada 2</a></li></ul><p>Substituam as fontes acima pelas ligações que realmente utilizaram.</p></section>
+</main>
+<footer><p>11.º TGEI — Tutorial WinCUPL</p><p>Salvador Rosário e Santiago Martins</p></footer>
+</body>
+</html>
